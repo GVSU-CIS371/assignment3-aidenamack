@@ -84,8 +84,11 @@ const syrups: Ref<SyrupType[]> = ref([
   },
 ]);
 
+const selectedBase = ref(bases.value.find((b) => b.id === "b2") ?? bases.value[0]);
+const selectedCreamer = ref(creamers.value.find((c) => c.id === "c2") ?? creamers.value[0]);
+const selectedSyrup = ref(syrups.value.find((s) => s.id === "s2") ?? syrups.value[0]);
 const currentTemp = ref(temps.value[1]);
 
 export type { BaseBeverageType, CreamerType, SyrupType };
-export { temps, bases, creamers, syrups };
+export { temps, bases, creamers, syrups, selectedBase, selectedCreamer, selectedSyrup };
 export { currentTemp };

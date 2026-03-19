@@ -1,10 +1,16 @@
 <template>
-  <div class="froth">
-    <div v-for=" in 5" class="foam"></div>
+  <div v-if="showCream" class="froth" :style="{ '--creamer-color': creamerColor }">
+    <div v-for="i in 5" :key="i" class="foam"></div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed } from "vue";
+import { selectedCreamer } from "../stores/beverage";
+
+const showCream = computed(() => selectedCreamer.value?.name !== "No Cream");
+const creamerColor = computed(() => selectedCreamer.value?.color ?? "transparent");
+</script>
 <style lang="scss" scoped>
 .froth {
   overflow: visible;
@@ -12,7 +18,6 @@
   position: relative;
   height: 20%;
   width: 100%;
-  background-color: #c6c6c6;
   animation: pour-tea 2s 2s forwards;
 }
 .foam {
