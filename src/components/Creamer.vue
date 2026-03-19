@@ -22,7 +22,7 @@ const creamerColor = computed(() => selectedCreamer.value?.color ?? "transparent
 }
 .foam {
   display: block;
-  background: #e4e0d2;
+  background: var(--creamer-color);
   border-radius: 30px;
   height: 40px;
   width: 40px;
